@@ -154,6 +154,4 @@ cython_debug/
 .vscode/
 
 # Project specific ignores
-*.joblib
-Fertilizer Prediction.csv
 brain/

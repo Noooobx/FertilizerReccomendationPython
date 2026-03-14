@@ -69,7 +69,7 @@ def predict():
         fertilizer_name = FERTILIZER_DESCRIPTIONS.get(fertilizer_code, fertilizer_code)
         
         # Calculate optimal values from dataset for this crop type
-        df = pd.read_csv('/home/nandakishor/works/FIX/Fertilizer/Fertilizer Prediction.csv')
+        df = pd.read_csv('Fertilizer Prediction.csv')
         df.columns = df.columns.str.strip()
         optimal_data = df[df['Crop Type'] == crop_type]
         
@@ -90,4 +90,5 @@ def predict():
         return jsonify({'error': str(e)}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5000)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
